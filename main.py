@@ -2,10 +2,10 @@ import random
 import sys
 import time
 import requests
-#colerama eventually
+
 
 # Channel To Do Stuff
-channelId = "YOUR CHANNEL ID TO SPAM"
+channelId = "CHANNEL TO SPAM"
 
 # Main Token
 mytoken = "YOUR DISCORD TOKEN"
@@ -16,8 +16,15 @@ header = {"authorization": mytoken}
 emojilist = (
 ['😳', '😀', '😅', '😊', '🤣', '🤓', '😕', '🫠', '🥱', '🤨', '🥺', '😱', '😝', '😐', '🤫', '😯', '😍', '🥰', '🤬', '🥳', '😢', '😭', '😉', '😎',
  '🤯', '😇', '🤮', '😵‍💫', '😬', '🥴', '👎', '👍', '👊', '✊'])
+apilinks = (['https://animechan.vercel.app/api/random','https://urlhaus-api.abuse.ch/v1/urls/recent/limit/1/','https://random-data-api.com/api/v2/users','https://random-data-api.com/api/v2/beers','https://www.boredapi.com/api/activity','https://api.coindesk.com/v1/bpi/currentprice.json','https://v2.jokeapi.dev/joke/Any?safe-mode','http://numbersapi.com/random/math',
+'https://api.fda.gov/food/enforcement.json?limit=1','https://api.fungenerators.com/taunt/generate?category=pirate-insult&limit=5','https://random-data-api.com/api/v2/appliances','https://api.plancke.io/hypixel/v1/punishmentStats','https://some-random-api.ml/animu/quote',
+'https://www.themealdb.com/api/json/v1/1/random.php','https://api.kanye.rest/','https://api.chucknorris.io/jokes/random','https://random-data-api.com/api/omniauth/facebook_get','https://random-data-api.com/api/restaurant/random_restaurant','https://random-data-api.com/api/nation/random_nation',
+'https://random-data-api.com/api/lorem_pixel/random_lorem_pixel','https://random-data-api.com/api/internet_stuff/random_internet_stuff','https://random-data-api.com/api/vehicle/random_vehicle','https://random-data-api.com/api/subscription/random_subscription','https://random-data-api.com/api/device/random_device',
+'https://random-data-api.com/api/dessert/random_dessert','https://random-data-api.com/api/crypto_coin/random_crypto_coin','https://random-data-api.com/api/crypto/random_crypto','https://random-data-api.com/api/computer/random_computer','https://random-data-api.com/api/cannabis/random_cannabis','https://random-data-api.com/api/code/random_code','https://some-random-api.ml/facts/panda',
+'https://api.lrs.org/random-date-generator?num_dates=10&source=api-docs','https://nekos.best/api/v2/kiss?amount=10','https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1','https://fakerapi.it/api/v1/texts?_quantity=1&_characters=1000','https://fakerapi.it/api/v1/places?_quantity=25','https://whatthecommit.com/index.txt'])
 url = f'https://discord.com/api/v9/channels/{channelId}/messages'
 url2 = f'https://discord.com/api/v9/channels/{channelId}/messages?limit=50'
+url3 = f"https://discord.com/api/v9/channels/{channelId}/invites"
 channelreq = requests.get(f'https://discord.com/api/v9/channels/{channelId}', headers=header)
 channelname = channelreq.json()['name']
 userq = requests.get("https://discord.com/api/v9/users/@me", headers=header)
@@ -30,7 +37,7 @@ stupidi2 = int("2000")
 animation = ["[■□□□□□□□□□]","[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]", "[■■■■■■■□□□]", "[■■■■■■■■□□]", "[■■■■■■■■■□]", "[■■■■■■■■■■]"]
 
 for i in range(len(animation)):
-    time.sleep(0.2)
+    time.sleep(0.1)
     sys.stdout.write("\r" + animation[i % len(animation)])
     sys.stdout.flush()
 
@@ -43,11 +50,10 @@ FreeMoneyHubs Discord Endpoint Beamer V2.0.0
 2 = Hentai Spam           9 = Mass React
 3 = File Read Line Spam   10 = Thread Spammer
 4 = Random Adress Spam    11 = Pin Spammer (50 Msg)
-5 = Random Link Spam 
-6 = Reply Spam (50 Msg)
-7 = 2000/4000 Spam
+5 = Random Link Spam      12 = Matrix Style Message Edit
+6 = Reply Spam (50 Msg)   13 = Data Spam
+7 = 2000/4000 Spam        14 = Invite Create Spam
 -------------------------------
-
 Channel : {channelname}
 Account : {username}#{discrim}
 
@@ -235,7 +241,7 @@ elif main == "7":
                 print(f"✅ Message Sent - {mkq}")
                 time.sleep(.0001)
             elif mkq.status_code == 400:
-                print(f"❌ Token Has Been Termed")
+                print(f"❌ You Dont Have Nitro? Why Chose This? Are You Retarted?")
                 time.sleep(.01)
             elif mkq.status_code == 401:
                 print(f"❌ Token Has Changed")
@@ -257,7 +263,7 @@ elif main == "7":
                 print(f"✅ Message Sent - {mkq}")
                 time.sleep(.0001)
             elif mkq.status_code == 400:
-                print(f"❌ Token Has Been Termed")
+                print(f"❌ Token Has Been Termed {mkq.text}")
                 time.sleep(.01)
             elif mkq.status_code == 401:
                 print(f"❌ Token Has Changed")
@@ -415,8 +421,123 @@ elif main == "11":
             print(f"❓ An Unknown Error Has Occured {egg.text}")
             time.sleep(15)
 
-        #Dev Only (Unless you for some reason need this lmafo)
+#12
 
+elif main =="12":
+    message = ''' **FREEMONEYHUBS DISCORD API ENDPOINT BEAMER**
+    FETCHING MESSAGE TO START **MATRIX STYLE MESSAGE EDIT**
+    '''
+    msgdata = {"content": message}
+    mkq = requests.post(url, headers=header, data=msgdata)
+    poop = requests.get(f"https://discord.com/api/v9/channels/{channelId}/messages?limit=1", headers=header)
+    jsonloadz = poop.json()
+    for popbob2 in jsonloadz:
+      notgayz = popbob2['id']
+      if mkq.status_code == 200:
+          print(f"✅ Message Url Has Been Created")
+          for i in range(poopsex):
+               char2k = "".join(random.choice("1 0  ") for _ in range(stupidi2))
+               editdata = {"content": char2k}
+               anotherurl = requests.patch(f"https://discord.com/api/v9/channels/{channelId}/messages/{notgayz}", headers=header, data=editdata)
+               if anotherurl.status_code ==200:
+                  print("✅ Message Edited Successfully ")
+               if anotherurl.status_code ==429:
+                  mkp = anotherurl.json()['retry_after']
+                  time.sleep(mkp)
+               else:
+                  print(f"❌ ERROR {anotherurl.text}")
+
+
+    else:
+        print(f"❓ An Unknown Error Has Occured {mkq.text}")
+
+#13
+
+elif main =="13":
+    for i in range(poopsex):
+        randomstringxd = random.choice(apilinks)
+        veryhttp = requests.get(randomstringxd)
+        message = (veryhttp.text)
+        data = {"content": message}
+        mkq = requests.post(url, headers=header, data=data)
+        if mkq.status_code == 200:
+            print(f"✅ Message Sent - {message}")
+            time.sleep(.0001)
+        elif mkq.status_code == 400:
+            print(f"❌ Message To Large Or Its Empty - {veryhttp}")
+            time.sleep(.01)
+        elif mkq.status_code == 401:
+            print(f"❌ Token Has Changed")
+            time.sleep(.0001)
+        elif mkq.status_code == 429:
+            mkp = mkq.json()['retry_after']
+            print(f"❌ Token Is Rate Limited {mkp}")
+            time.sleep(mkp)
+        else:
+            print(f"❓ An Unknown Error Has Occured {mkq.text}")
+            time.sleep(1)
+            if main == "1":
+                message = input("[?] Enter A Message : ")
+                for i in range(poopsex):
+                    data = {"content": message}
+                    mkq = requests.post(url, headers=header, data=data)
+                    if mkq.status_code == 200:
+                        print(f"✅ Message Sent - {message}")
+                        time.sleep(.0001)
+                    elif mkq.status_code == 400:
+                        print(f"❌ Token Has Been Termed")
+                        time.sleep(.01)
+                    elif mkq.status_code == 401:
+                        print(f"❌ Token Has Changed")
+                        time.sleep(.0001)
+                    elif mkq.status_code == 429:
+                        mkp = mkq.json()['retry_after']
+                        print(f"❌ Token Is Rate Limited {mkp}")
+                        time.sleep(mkp)
+                    else:
+                        print(f"❓ An Unknown Error Has Occured {mkq.text}")
+                        time.sleep(1)
+
+#14
+
+if main == "14":
+    for i in range(poopsex):
+        rint = random.randint(1, 100)
+        rint2 = random.randint(100000, 604800)
+        data = {"max_age": rint2,"max_uses": rint,"temporary": "false"}
+        mkq = requests.post(url3, headers=header, json=data)
+        invcode = mkq.json()['code']
+        if mkq.status_code == 200:
+            print(f"✅ Invite Created - {invcode}")
+            time.sleep(.0001)
+        elif mkq.status_code == 429:
+            mkp = mkq.json()['retry_after']
+            time.sleep(mkp)
+            sex = requests.post(url3, headers=header, json=data)
+            invcode2 = sex.json()['code']
+            print(f"✅ Invite Created - {invcode2}")
+        else:
+            print(f"❓ An Unknown Error Has Occured {mkq.text}")
+            time.sleep(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Dev Only (Unless you for some reason need this lmafo)
 elif main =="dev":
     message = "!help"
     # channels
@@ -437,21 +558,22 @@ elif main =="dev":
     for i in range(poopsex):
         channelz = random.choice([channel1, channel2, channel3, channel4, channel5, channel6])
         takens = random.choice([token1, token2, mytoken, token3, token4, token5, token6])
-        url = 'https://discord.com/api/v9/channels/{}/messages'.format(channelz)
+        urlxd = 'https://discord.com/api/v9/channels/{}/messages'.format(channelz)
         data = {"content": message}
-        mkq = requests.post(url, headers=header, data=data)
+        devheader = {"authorization": takens}
+        mkq = requests.post(urlxd, headers=devheader, data=data)
 
         if mkq.status_code == 200:
-            print(f"✅ Message Sent - {message} - Channel {channelz}")
+            print(f"✅ Message Sent - {message} - Channel {channelz} - Token {takens}")
             time.sleep(.0001)
         elif mkq.status_code == 401:
             print(f"❌ Token Has Changed {takens}")
             time.sleep(.0001)
         elif mkq.status_code == 429:
             mkp = mkq.json()['retry_after']
-            print(f"❌ Token Is Rate Limited {mkp}")
+            print(f"❌ Token ({takens}) Is Rate Limited {mkp}")
         else:
             print(f"❓ An Unknown Error Has Occured {mkq.text}")
             time.sleep(15)
-
-
+else:
+    print("❌ Invalid Option >:(")
