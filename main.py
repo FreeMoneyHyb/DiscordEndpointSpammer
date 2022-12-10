@@ -5,7 +5,7 @@ import requests
 
 
 # Channel To Do Stuff
-channelId = "CHANNEL TO SPAM"
+channelId = "YOUR CHANNEL ID"
 
 # Main Token
 mytoken = "YOUR DISCORD TOKEN"
@@ -46,17 +46,16 @@ print(f'''
 \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
 FreeMoneyHubs Discord Endpoint Beamer V2.0.0 
 -------------------------------
-1 = Normal Spam           8 = Ghost Spam
-2 = Hentai Spam           9 = Mass React
-3 = File Read Line Spam   10 = Thread Spammer
+1 = Normal Spam           8 = Ghost Spam                15 = Voice Emote Spam (Needs Nitro)
+2 = Hentai Spam           9 = Mass React                16 = Silent Ping Exploit (5 People)
+3 = File Read Line Spam   10 = Thread Spammer           
 4 = Random Adress Spam    11 = Pin Spammer (50 Msg)
-5 = Random Link Spam      12 = Matrix Style Message Edit
+5 = Random Link Spam      12 = Matrix Message Edit
 6 = Reply Spam (50 Msg)   13 = Data Spam
 7 = 2000/4000 Spam        14 = Invite Create Spam
 -------------------------------
 Channel : {channelname}
 Account : {username}#{discrim}
-
 ''')
 main = input("[?] Enter An Option : ")
 # --------------------
@@ -221,7 +220,7 @@ elif main == "6":
             mkp = mkq.json()['retry_after']
             print(f"❌ Token Is Rate Limited {mkp}")
             time.sleep(mkp)
-            requests.post(url, headers=header, json=data)
+            requests.post(url, headers=header, json=datapriv)
             print(f"✅ Replyed To ({notgayz2}) With - ({message})")
         else:
             print(f"❓ An Unknown Error Has Occured {mkq.text}")
@@ -506,8 +505,8 @@ if main == "14":
         rint2 = random.randint(100000, 604800)
         data = {"max_age": rint2,"max_uses": rint,"temporary": "false"}
         mkq = requests.post(url3, headers=header, json=data)
-        invcode = mkq.json()['code']
         if mkq.status_code == 200:
+            invcode = mkq.json()['code']
             print(f"✅ Invite Created - {invcode}")
             time.sleep(.0001)
         elif mkq.status_code == 429:
@@ -521,6 +520,58 @@ if main == "14":
             time.sleep(1)
 
 
+#15
+
+elif main == "15":
+    voiceid = input("[?] Enter Voice Channel Id : ")
+    emoji = input("[?] Enter The Emoji ID : ")
+    emojiname = input("[?] Enter The Emoji Name : ")
+    vc = f"https://discord.com/api/v9/channels/{voiceid}/voice-channel-effects"
+    for i in range(poopsex):
+        randid = random.randint(1, 14)
+        data = {"emoji_id": emoji, "emoji_name": emojiname, "animation_type": "0", "animation_id": randid}
+        mkq = requests.post(vc, headers=header, json=data)
+        if mkq.status_code == 204:
+            print(f"✅ Animation Sent - ({emojiname} : animation_id-{randid}) ")
+            time.sleep(.0001)
+        elif mkq.status_code == 429:
+            mkp = mkq.json()['retry_after']
+            time.sleep(mkp)
+            sex = requests.post(vc, headers=header, json=data)
+            print(f"✅ Animation Sent - ({emojiname} : animation_id-{randid}) ")
+        else:
+            print(f"❓ An Unknown Error Has Occured {mkq.text}")
+            time.sleep(1)
+
+#16
+
+elif main == "16":
+    ping1 = input("[1] Enter User ID : ")
+    ping2 = input("[2] Enter User ID : ")
+    ping3 = input("[3] Enter User ID : ")
+    ping4 = input("[4] Enter User ID : ")
+    ping5 = input("[5] Enter User ID : ")
+    message = f"""||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| _ _ _ _ _ _
+<@{ping1}> <@{ping2}> <@{ping3}> <@{ping4}> <@{ping5}>"""
+    for i in range(poopsex):
+        data = {"content": message}
+        mkq = requests.post(url, headers=header, data=data)
+        if mkq.status_code == 200:
+            print(f"✅ Exploited Message Sent - {message}")
+            time.sleep(.0001)
+        elif mkq.status_code == 400:
+            print(f"❌ Token Has Been Termed")
+            time.sleep(.01)
+        elif mkq.status_code == 401:
+            print(f"❌ Token Has Changed")
+            time.sleep(.0001)
+        elif mkq.status_code == 429:
+            mkp = mkq.json()['retry_after']
+            print(f"❌ Token Is Rate Limited {mkp}")
+            time.sleep(mkp)
+        else:
+            print(f"❓ An Unknown Error Has Occured {mkq.text}")
+            time.sleep(1)
 
 
 
